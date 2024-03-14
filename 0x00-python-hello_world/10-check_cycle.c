@@ -1,52 +1,43 @@
 #include "lists.h"
-#include <stdio.h>
+
 /**
- * _strcat- Entry point
- * Description: 'the program's description'
- * @dest: First operand
- * @src: Second operand;
- *
- * Return: An int
+ * check_cycle - checks if a singly linked list has
+ * a cycle in it
+ * @list: pointer to the list
+ * Return: 0 if there is no cycle,
+ * 1 if there is a cycle
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *current = list, (**p);
-	int i, j, n = 0, flag = 0;
+	listint_t *p2;
+	listint_t *prev;
 
-	if (list == NULL)
-		return (-1);
-	for(n = 0; current != NULL; ++n)
-		current = current->next;
-	p = malloc((n + 1) * sizeof(listint_t *));
-	if (p == NULL)
-		return (-1);
-	current = list;
-	for (i = 0; i <= n; i++)
+	p2 = list;
+	prev = list;
+	while (list && p2 && p2->next)
 	{
-		p[i] = NULL;
-		if (current != NULL)
+		list = list->next;
+		p2 = p2->next->next;
+
+		if (list == p2)
 		{
-			p[i] = current;
-			current = current->next;
+			list = prev;
+			prev =  p2;
+			while (1)
+			{
+				p2 = prev;
+				while (p2->next != list && p2->next != prev)
+				{
+					p2 = p2->next;
+				}
+				if (p2->next == list)
+					break;
+
+				list = list->next;
+			}
+			return (1);
 		}
 	}
-	current = list;
-	for (i = 0; i <= n; i++)
-	{
-		for (j = 0, flag = 0; j < i; j++)
-		{
-			if (p[j] == current)
-				flag += 1;
-			if (flag == 2)
-				break;
-		}
-		if (flag == 2)
-			break;
-		current = current->next;
-	}
-	free(p);
-	if (flag == 2)
-		return (1);
+
 	return (0);
 }
-
