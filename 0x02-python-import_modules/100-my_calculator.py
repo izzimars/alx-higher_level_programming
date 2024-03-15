@@ -11,6 +11,7 @@ if __name__ == "__main__":
         sys.exit(1)
     a = int(ls[0])
     b = int(ls[2])
+
     if (ls[1] not in ["-", "+", "*", "/"]):
         print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
