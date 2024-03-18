@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 def new_in_list(my_list, idx, element):
-    """A function that copies a listand replacaes an element  at a particular index.
+    """Mylist printing function
+
     Args:
-        my_list: The list to be indexed
-        idx: the index
-        element: An integer
+        my_list: The list to be printed
+
+    Returns:
+        None
     """
     if (idx < 0 or idx >= len(my_list)):
         return my_list[:]
