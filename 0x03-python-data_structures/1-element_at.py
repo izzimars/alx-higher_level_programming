@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 def element_at(my_list, idx):
-    """A function that mimmic the way 
-    indexing a function in c is
+    """Get the element at the specified index in the list. 
 
     Args:
         my_list: The list to be indexed
@@ -11,6 +10,6 @@ def element_at(my_list, idx):
         None
     """
     if (idx >= len(my_list) or idx < 0):
-        return (None)
+        return None
     else:
-        return (my_list[idx])
+        return my_list[idx]
