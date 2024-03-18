@@ -10,7 +10,7 @@ def element_at(my_list, idx):
     Returns:
         None
     """
-    if (idx >= len(mylist) or idx < 0):
+    if (idx >= len(my_list) or idx < 0):
         return (None)
     else:
         return (my_list[idx])
