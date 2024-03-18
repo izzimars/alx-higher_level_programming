@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def new_in_list(my_list, idx, element):
-    """Mylist printing function
+    """A function to subtituet a value in a copied version of the input list
 
     Args:
         my_list: The list to be copied
@@ -8,7 +8,7 @@ def new_in_list(my_list, idx, element):
         element: The value to be inserted
 
     Returns:
-        None
+        List
     """
     if (idx < 0 or idx >= len(my_list)):
         return my_list[:]
