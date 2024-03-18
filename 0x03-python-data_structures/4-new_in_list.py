@@ -3,7 +3,9 @@ def new_in_list(my_list, idx, element):
     """Mylist printing function
 
     Args:
-        my_list: The list to be printed
+        my_list: The list to be copied
+        idx: An integer to idicate the index
+        element: The value to be inserted
 
     Returns:
         None
