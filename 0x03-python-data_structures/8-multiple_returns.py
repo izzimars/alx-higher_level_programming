@@ -9,5 +9,7 @@ def multiple_returns(sentence):
     """
     lent = len(sentence)
     if lent == 0:
-        return (lent, None)
-    return (lent, sentence[0])
+        tp = (lent, None)
+        return (tp)
+    tp = (lent, sentence[0])
+    return (tp)
