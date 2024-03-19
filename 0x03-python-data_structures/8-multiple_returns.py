@@ -1,15 +1,10 @@
-#!bin/bash/python3
+#!/usr/bin/python3
 def multiple_returns(sentence):
-    """A function that tries the multiple return power of a tuple.
+    len_sen = len(sentence)
 
-    Args:
-        sentence: string
+    if (len_sen == 0):
+        new_tuple = (len_sen, None)
+    else:
+        new_tuple = (len_sen, sentence[0])
 
-    Return: tuple
-    """
-    lent = len(sentence)
-    if lent == 0:
-        tp = (lent, None)
-        return (tp)
-    tp = (lent, sentence[0])
-    return (tp)
+    return (new_tuple)
