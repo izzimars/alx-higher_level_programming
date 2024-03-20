@@ -1,13 +1,5 @@
 #!/usr/bin/python3
 def square_matrix_simple(matrix=[]):
-    """A function that returns the square of a 2 dimensional matrix
-
-    Args:
-       1)List
-
-    Return:
-        1)List
-    """
     new_matrix = []
     for i in range(len(matrix)):
         new_matrix.append([])
