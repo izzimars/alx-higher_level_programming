@@ -2,7 +2,7 @@
 def roman_to_int(roman_string):
     if roman_string == None:
         return None
-    if isinstance(roman_string, str):
+    if not isinstance(roman_string, str):
         return 0
     roman_string = roman_string.lower()
     rom_dict = {'m':1000, 'd':500, 'c':100, 'l':50, 'x':10, 'v':5, 'i':1}
