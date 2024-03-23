@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def complex_delete(a_dictionary, value):
-    if type(a_dictionary) != dict:
+    if not isinstance(a_dictionary, dict):
         return None
     new_list = list(a_dictionary.values())
     if value not in new_list:
