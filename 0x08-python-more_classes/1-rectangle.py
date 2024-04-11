@@ -19,20 +19,16 @@ class Rectangle:
 
     @height.setter
     def height(self, height):
-        try:
-            self.__height = int(height)
-        except (TypeError, ValueError):
-            if ValueError:
-                print("height must be >= 0")
-            else:
-                print("height must be an integer")
+        if not isinstance(height, int):
+            raise TypeError("height must be an integer")
+        if height < 0:
+            raise ValueError("height must be >= 0")
+        self.__height = height
 
     @width.setter
     def width(self, width):
-        try:
-            self.__width = int(width)
-        except (TypeError, ValueError):
-            if ValueError:
-                print("width must be >= 0")
-            else:
-                print("width must be an integer")
+            if not isinstance(width, int):
+                raise TypeError("width must be >= 0")
+            if width < 0:
+                raise ValueError("height must be >= 0")
+            self.__width = width
