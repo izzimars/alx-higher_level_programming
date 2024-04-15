@@ -38,6 +38,6 @@ class MyList(list):
 
         """
 
-        b = self[:];
+        b = self[:]
         b.sort()
         print(b)
