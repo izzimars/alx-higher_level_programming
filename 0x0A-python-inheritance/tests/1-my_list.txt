@@ -39,7 +39,6 @@ case 3: passed an int
 
 >>> a = 194
 >>> my_list = MyList(a)
->>> my_list.print_sorted()
 Traceback (most recent call last):
 TypeError: 'int' object is not iterable
 >>>
@@ -50,7 +49,6 @@ case 4: passed  a float
 
 >>> a = 19.7
 >>> my_list = MyList(a)
->>> my_list.print_sorted()
 Traceback (most recent call last):
 TypeError: 'float' object is not iterable
 >>>
@@ -70,7 +68,7 @@ case 5: passed a string
 
 case 6: two argument
 
->>> b = Mtlist((5, 8), (12, 35))
+>>> b = MyList((5, 8), (12, 35))
 Traceback (most recent call last):
 TypeError: list expected at most 1 argument, got 2
 >>>
@@ -78,9 +76,10 @@ TypeError: list expected at most 1 argument, got 2
 -------------------------------------------
 
 case 7: calling unimplemented method
+>>> b = MyList()
 >>> b.unimplement()
 Traceback (most recent call last):
-AttributeError: 'Mtlist' object has no attribute 'unimplement'
+AttributeError: 'MyList' object has no attribute 'unimplement'
 >>>
 
 -------------------------------------------
@@ -91,12 +90,14 @@ case 8: calling parent method
 >>> my_list = MyList()
 >>> my_list.append(5)
 >>> my_list.append(1)
->>> my_list.count()
+>>> my_list.count(5)
+1
 >>> my_list.append(-1)
 >>> my_list.append(51)
 >>> my_list.append(-5)
 >>> my_list.extend([2, 3, 4,7])
 >>> my_list.pop()
+7
 >>> my_list.print_sorted()
-[-5, -1, 1, 5, 51]
+[-5, -1, 1, 2, 3, 4, 5, 51]
 >>>
