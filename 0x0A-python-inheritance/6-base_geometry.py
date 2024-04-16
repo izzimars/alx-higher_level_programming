@@ -37,7 +37,4 @@ class BaseGeometry:
 
         """
 
-        try:
-            raise Exception
-        except Exception:
-            print("area() is not implemented")
+        raise Exception('area() is not implemented')
