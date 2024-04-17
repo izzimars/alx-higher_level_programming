@@ -39,18 +39,20 @@ class Student:
            None.
         """
 
-        dic_json =  {
+        dic_json = {
                 "first_name": self.first_name,
                 "last_name": self.last_name,
                 "age": self.age
                 }
-        if  not attrs:
+        if not attrs:
             return dic_json
         try:
             new_dict = dict()
             for i in attrs:
+                if isinstance(i, str):
+                    dic_json
                 if i in list(dic_json.keys()):
                     new_dict[i] = dic_json[i]
             return new_dict
-        except:
+        except KeyError:
             return dic_json
