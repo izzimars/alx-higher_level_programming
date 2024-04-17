@@ -23,4 +23,3 @@ if __name__ == "__main__":
     for i in lst:
         items.append(i)
     stjf(items, "add_item.json")
-
