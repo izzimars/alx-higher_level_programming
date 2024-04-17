@@ -9,8 +9,6 @@ Public Function:
 
 """
 
-import json
-
 
 def class_to_json(obj):
     """
@@ -30,5 +28,5 @@ def class_to_json(obj):
     all_att = dir(obj)
     attr = [i for i in all_att if not callable(getattr(obj, i))]
     attr = [i for i in attr if not i.startswith("__")]
-    attr = {i:getattr(obj, i) for i in attr}
+    attr = {i: getattr(obj, i) for i in attr}
     return attr
