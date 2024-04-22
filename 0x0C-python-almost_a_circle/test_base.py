@@ -42,7 +42,7 @@ class TestBase_instantiation(unittest.TestCase):
 
     def test_sameid(self):
         b1 = Base()
-        b2 = Base(7)
+        b2 = Base(1)
         self.assertEqual(b1.id, b2.id)
 
     def test_None_id(self):

@@ -20,7 +20,7 @@ class TestRectangle_instantiation(unittest.TestCase):
     """Unittests for testing instantiation of the Base class."""
 
     def test_inheritfrombase(self):
-        self.assertEqual(Rectangle.__bases__, "(<class '__main__.Base'>,)")
+        self.assertEqual(str(Rectangle.__bases__), "(<class 'models.base.Base'>,)")
 
     def test_rectinst(self):
         with self.assertRaises(TypeError):
@@ -56,7 +56,7 @@ class TestRectangle_instantiation(unittest.TestCase):
 
     def test_ypriv(self):
         with self.assertRaises(AttributeError):
-            r1 = Rectangle(10, 11, 6)
+            r1 = Rectangle(10, 11, id=6)
             r1.__y = 13
 
     def test_getwidth(self):
