@@ -56,6 +56,38 @@ class TestRectangle_instantiation(unittest.TestCase):
         with self.assertRaises(AttributeError):
             print(Rectangle(5, 5, 0, 0, 1).__y)
 
+    def test_width_limit(self):
+        with self.assertRaises(ValueError):
+            print(Rectangle(-5, 5, 0, 0, 1).y)
+
+    def test_height_limit(self):
+        with self.assertRaises(ValueError):
+            print(Rectangle(5, -5, 0, 0, 1).y)
+
+    def test_x_limit(self):
+         with self.assertRaises(ValueError):
+             print(Rectangle(5, 5, -5, 0, 1).y)
+
+    def test_y_limit(self):
+        with self.assertRaises(ValueError):
+            print(Rectangle(5, 5, 5, -5, 1).y)
+
+    def test_x_typlimit(self):
+        with self.assertRaises(TypeError):
+            print(Rectangle(5, 5, 'l', 5, 1).y)
+
+    def test_y_typlimit(self):
+        with self.assertRaises(TypeError):
+            print(Rectangle(5, 5, 5, "school", 1).y)
+
+    def test_width_typlimit(self):
+        with self.assertRaises(TypeError):
+            print(Rectangle([1, 2, 3,], 10, 10, 7, 1).y)
+
+    def test_height_typlimit(self):
+        with self.assertRaises(TypeError):
+            print(Rectangle(9, True, 10, 7, 1).y)
+
     def test_width_getter(self):
         r = Rectangle(5, 7, 7, 5, 1)
         self.assertEqual(5, r.width)

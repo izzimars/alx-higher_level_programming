@@ -21,10 +21,19 @@ from models.base import Base
 class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         super().__init__(id)
-        ls = [width, height, x, y, id]
+        ls = [width, height, x, y]
         for i in ls:
             if not isinstance(i, int):
-                raise TypeError
+                raise TypeError("{} must be an integer.".format(i))
+        if width <= 0:
+            raise ValueError("width must be > 0")
+        if height <= 0:
+            raise ValueError("height must be > 0")
+        if x < 0:
+            raise ValueError("x must be >= 0")
+        if y < 0:
+            raise ValueError("y must be >= 0")
+
         self.__width = width
         self.__height = height
         self.__x = x
