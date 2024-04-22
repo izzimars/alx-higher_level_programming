@@ -36,60 +36,97 @@ class TestRectangle_instantiation(unittest.TestCase):
         self.assertIsInstance(r1, Base)
 
     def test_rectinstid(self):
-        r1 = Rectangle(10, 11, 6)
+        r1 = Rectangle(10, 11, id=6)
         self.assertEqual(6, r1.id)
 
-    def test_widthpriv(self):
-        with self.assertRaises(AttributeError):
-            r1 = Rectangle(10, 11, 6)
-            r1.__width = 13
 
-    def test_heightpriv(self):
+    def test_width_private(self):
         with self.assertRaises(AttributeError):
-            r1 = Rectangle(10, 11, 6)
-            r1.__height = 13
+            print(Rectangle(5, 5, 0, 0, 1).__width)
 
-    def test_xpriv(self):
+    def test_height_private(self):
         with self.assertRaises(AttributeError):
-            r1 = Rectangle(10, 11, 6)
-            r1.__x = 13
+            print(Rectangle(5, 5, 0, 0, 1).__height)
 
-    def test_ypriv(self):
+    def test_x_private(self):
         with self.assertRaises(AttributeError):
-            r1 = Rectangle(10, 11, id=6)
-            r1.__y = 13
+            print(Rectangle(5, 5, 0, 0, 1).__x)
+
+    def test_y_private(self):
+        with self.assertRaises(AttributeError):
+            print(Rectangle(5, 5, 0, 0, 1).__y)
+
+    def test_width_getter(self):
+        r = Rectangle(5, 7, 7, 5, 1)
+        self.assertEqual(5, r.width)
+
+    def test_width_setter(self):
+        r = Rectangle(5, 7, 7, 5, 1)
+        r.width = 10
+        self.assertEqual(10, r.width)
+
+    def test_height_getter(self):
+        r = Rectangle(5, 7, 7, 5, 1)
+        self.assertEqual(7, r.height)
+
+    def test_height_setter(self):
+        r = Rectangle(5, 7, 7, 5, 1)
+        r.height = 10
+        self.assertEqual(10, r.height)
+
+    def test_x_getter(self):
+        r = Rectangle(5, 7, 7, 5, 1)
+        self.assertEqual(7, r.x)
+
+    def test_x_setter(self):
+        r = Rectangle(5, 7, 7, 5, 1)
+        r.x = 10
+        self.assertEqual(10, r.x)
+
+    def test_y_getter(self):
+        r = Rectangle(5, 7, 7, 5, 1)
+        self.assertEqual(5, r.y)
+
+    def test_y_setter(self):
+        r = Rectangle(5, 7, 7, 5, 1)
+        r.y = 10
+        self.assertEqual(10, r.y)
 
     def test_getwidth(self):
-        r1 = Rectangle(10, 11, 6)
-        self.assertIsInstance(r1.get_width(), int)
+        r1 = Rectangle(10, 11, id=6)
+        self.assertIsInstance(r1.width, int)
 
     def test_getheight(self):
-        r1 = Rectangle(10, 11, 6)
-        self.assertIsInstance(r1.get_width(), int)
+        r1 = Rectangle(10, 11, id=6)
+        self.assertIsInstance(r1.height, int)
 
     def test_getx(self):
-        r1 = Rectangle(10, 11, 6)
-        self.assertIsInstance(r1.get_width(), int)
+        r1 = Rectangle(10, 11, id=6)
+        self.assertIsInstance(r1.x, int)
 
     def test_gety(self):
-        r1 = Rectangle(10, 11, 6)
-        self.assertIsInstance(r1.get_y(), int)
+        r1 = Rectangle(10, 11, id=6)
+        self.assertIsInstance(r1.y, int)
 
     def test_setwidth(self):
-        r1 = Rectangle(10, 11, 6)
-        self.assertIsEqual(r1.set_width(10), r1.get_width())
+        r1 = Rectangle(10, 11, id=6)
+        r1.width = 10
+        self.assertEqual(10, r1.width)
 
     def test_setx(self):
-        r1 = Rectangle(10, 11, 6)
-        self.assertIsEqual(r1.set_x(10), r1.get_x())
+        r1 = Rectangle(10, 11, id=6)
+        r1.x = 10
+        self.assertEqual(r1.x, 10)
 
     def test_sety(self):
-        r1 = Rectangle(10, 11, 6)
-        self.assertIsEqual(r1.set_y(10), r1.get_y())
+        r1 = Rectangle(10, 11, id=6)
+        r1.y = 100
+        self.assertEqual(r1.y, 100)
 
     def test_setheight(self):
-        r1 = Rectangle(10, 11, 6)
-        self.assertIsEqual(r1.set_height(10), r1.get_height())
+        r1 = Rectangle(10, 11, id=6)
+        r1.height = 10
+        self.assertEqual(r1.height, 10)
 
     def test_multiplevalues(self):
         with self.assertRaises(TypeError):
