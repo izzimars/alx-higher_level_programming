@@ -55,6 +55,7 @@ class Square(Rectangle):
         return: None.
         """
         super().__init__(size, size, x, y, id)
+        self.__size = self.width
 
     def __str__(self):
         """ A method that displays a string representation
@@ -68,3 +69,24 @@ class Square(Rectangle):
         lstr = lstr + str(self.x) + "/" + str(self.y)
         lstr = lstr + " - " + str(self.width)
         return lstr
+
+    @property
+    def size(self):
+        """ A method to get the size of the object.
+
+        params: None.
+        return: None.
+        """
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        """ A method to set the size of the object.
+
+        params value: value of the new width.
+        type value: value if of type integer.
+
+        return: None.
+        """
+        self.width = value
+        self.height = value
