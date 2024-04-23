@@ -25,7 +25,6 @@ class TestRectangle_instantiation(unittest.TestCase):
     def test_rectinst(self):
         with self.assertRaises(TypeError):
             r1 = Rectangle()
-            print(r1)
 
     def test_rectinstvar(self):
         r1 = Rectangle(10, 11)
@@ -86,7 +85,8 @@ class TestRectangle_instantiation(unittest.TestCase):
 
     def test_height_typlimit(self):
         with self.assertRaises(TypeError):
-            print(Rectangle(9, True, 10, 7, 1).y)
+            a = Rectangle(9, True, 10, 7, 1)
+            print(a.y)
 
     def test_width_getter(self):
         r = Rectangle(5, 7, 7, 5, 1)
@@ -165,6 +165,46 @@ class TestRectangle_instantiation(unittest.TestCase):
             r1 = Rectangle(10, 11, 3, 16, 17, 18, 19, 20)
             print(r1)
 
+    def test_area(self):
+        r1 = Rectangle(10, 11, id=6)
+
+    def test_areaone(self):
+        r1 = Rectangle(10, 24, id=7)
+
+    def test_areatwo(self):
+        with self.assertRaises(TypeError):
+            r1 = Rectangle(10, "", id=6)
+
+    def test_disp(self):
+        r1 = Rectangle(10, 11, id=6)
+
+    def test_print(self):
+        r1 = Rectangle(4, 6, 2, 1, 12)
+
+    def test_updateid(self):
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        r1.update(6)
+        self.assertEqual(6, r1.id)
+    
+    def test_updatewidth(self):
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        r1.update(6, 3)
+        self.assertEqual(3, r1.width)
+
+    def test_updateheight(self):
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        r1.update(6, 3, 4)
+        self.assertEqual(4, r1.height)
+
+    def test_updatex(self):
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        r1.update(6, 3, 4, 6)
+        self.assertEqual(6, r1.x)
+
+    def test_updatex(self):
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        r1.update(6, 3, 4, 6, 7)
+        self.assertEqual(7, r1.y)
 
 if __name__ == "__main__":
     unittest.main()
