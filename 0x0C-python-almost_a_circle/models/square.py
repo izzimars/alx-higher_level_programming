@@ -55,7 +55,6 @@ class Square(Rectangle):
         return: None.
         """
         super().__init__(size, size, x, y, id)
-        self.__size = self.width
 
     def __str__(self):
         """ A method that displays a string representation
@@ -77,7 +76,7 @@ class Square(Rectangle):
         params: None.
         return: None.
         """
-        return self.__size
+        return self.width
 
     @size.setter
     def size(self, value):
@@ -90,4 +89,3 @@ class Square(Rectangle):
         """
         self.width = value
         self.height = value
-        self.__size = self.width
