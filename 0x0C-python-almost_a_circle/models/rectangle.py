@@ -246,7 +246,7 @@ class Rectangle(Base):
             self.__y = args[4]
         for i in kwargs:
             if str(i) == "id" and len(args) < 1:
-                self.__id = kwargs[i]
+                self.id = kwargs[i]
             if str(i) == "width" and len(args) < 2:
                 self.__width = kwargs[i]
             if str(i) == "height" and len(args) < 3:
