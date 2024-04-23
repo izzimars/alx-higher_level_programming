@@ -126,3 +126,17 @@ class Square(Rectangle):
                 self.x = kwargs[i]
             if str(i) == "y" and len(args) < 5:
                 self.y = kwargs[i]
+
+    def to_dictionary(self):
+        """ THis method returns the dictionary representation
+        of a Square
+
+        params: None.
+        return: None.
+        """
+        ldict = {}
+        ldict["id"] = self.id
+        ldict["size"] = self.width
+        ldict["x"] = self.x
+        ldict["y"] = self.y
+        return ldict

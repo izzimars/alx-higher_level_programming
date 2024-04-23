@@ -257,7 +257,7 @@ class Rectangle(Base):
                 self.__y = kwargs[i]
 
     def to_dictionary(self):
-        """ THis method returns the dictionary representation 
+        """ THis method returns the dictionary representation
         of a Rectangle
 
         params: None.
