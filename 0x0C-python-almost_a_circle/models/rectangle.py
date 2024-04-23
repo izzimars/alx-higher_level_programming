@@ -255,3 +255,18 @@ class Rectangle(Base):
                 self.__x = kwargs[i]
             if str(i) == "y" and len(args) < 5:
                 self.__y = kwargs[i]
+
+    def to_dictionary(self):
+        """ THis method returns the dictionary representation 
+        of a Rectangle
+
+        params: None.
+        return: None.
+        """
+        ldict = {}
+        ldict["id"] = self.id
+        ldict["width"] = self.__width
+        ldict["height"] = self.__height
+        ldict["x"] = self.__x
+        ldict["y"] = self.__y
+        return ldict
