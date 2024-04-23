@@ -58,14 +58,14 @@ class Rectangle(Base):
         """
         super().__init__(id)
         ls = [width, height, x, y]
-        for i in ls:
+        for j, i in enumerate(ls):
             if not isinstance(i, int) or isinstance(i, bool):
                 lstval = {
-                        "0": "width",
-                        "1": "height",
-                        "2": "x",
-                        "3": "y"}
-                raise TypeError("{} must be an integer.".format(lstval[i]))
+                        0: "width",
+                        1: "height",
+                        2: "x",
+                        3: "y"}
+                raise TypeError("{} must be an integer.".format(lstval[j]))
         if width <= 0:
             raise ValueError("width must be > 0")
         if height <= 0:
