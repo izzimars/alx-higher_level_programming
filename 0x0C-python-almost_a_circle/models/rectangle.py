@@ -65,7 +65,7 @@ class Rectangle(Base):
                         1: "height",
                         2: "x",
                         3: "y"}
-                raise TypeError("{} must be an integer.".format(lstval[j]))
+                raise TypeError("{} must be an integer".format(lstval[j]))
         if width <= 0:
             raise ValueError("width must be > 0")
         if height <= 0:
