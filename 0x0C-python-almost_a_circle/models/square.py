@@ -54,7 +54,7 @@ class Square(Rectangle):
 
         return: None.
         """
-        super().__init__(size, size, x, y, id=None)
+        super().__init__(size, size, x, y, id)
 
     def __str__(self):
         """ A method that displays a string representation
