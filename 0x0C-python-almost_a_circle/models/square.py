@@ -89,3 +89,40 @@ class Square(Rectangle):
         """
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        """ A method to update the value of multiple properties
+        of the object in this order:
+        id, width, height, x, y. The update depends on the number of
+        arguments given to the function.
+
+        params id[optional]: id of the object.
+        type id: is an integer.
+        params size[optional]: size of the object.
+        type size: is an integer.
+        params x[optional]: x-coordinate of the object.
+        type x: is an integer.
+        params y[optional]: y-coordinate of the object.
+        type y: is an integer.
+
+        return: None.
+        """
+        if len(args) >= 1:
+            self.id = args[0]
+        if len(args) >= 2:
+            self.width = args[1]
+            self.height = args[1]
+        if len(args) >= 3:
+            self.x = args[2]
+        if len(args) >= 4:
+            self.y = args[3]
+        for i in kwargs:
+            if str(i) == "id" and len(args) < 1:
+                self.id = kwargs[i]
+            if str(i) == "size" and len(args) < 2:
+                self.width = kwargs[i]
+                self.height = kwargs[i]
+            if str(i) == "x" and len(args) < 4:
+                self.x = kwargs[i]
+            if str(i) == "y" and len(args) < 5:
+                self.y = kwargs[i]
