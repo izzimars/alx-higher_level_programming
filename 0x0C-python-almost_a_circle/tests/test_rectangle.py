@@ -206,5 +206,21 @@ class TestRectangle_instantiation(unittest.TestCase):
         r1.update(6, 3, 4, 6, 7)
         self.assertEqual(7, r1.y)
 
+    def test_newupdate(self):
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(height=1)
+
+    def test_newupdateone(self):
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(width=1, x=2)
+
+    def test_newupdatetwo(self):
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(y=1, width=2, x=3, id=89)
+
+    def test_newupdatetre(self):
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(x=1, height=2, y=3, width=4)
+
 if __name__ == "__main__":
     unittest.main()

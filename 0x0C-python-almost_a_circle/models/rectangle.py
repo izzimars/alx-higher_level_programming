@@ -215,7 +215,7 @@ class Rectangle(Base):
         lstr = lstr + str(self.__height)
         return lstr
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """ A method to update the value of multiple properties
         of the object in this order:
         id, width, height, x, y. The update depends on the number of
@@ -244,3 +244,14 @@ class Rectangle(Base):
             self.__x = args[3]
         if len(args) >= 5:
             self.__y = args[4]
+        for i in kwargs:
+            if str(i) == "id" and len(args) < 1:
+                self.__id = kwargs[i]
+            if str(i) == "width" and len(args) < 2:
+                self.__width = kwargs[i]
+            if str(i) == "height" and len(args) < 3:
+                self.__height = kwargs[i]
+            if str(i) == "x" and len(args) < 4:
+                self.__x = kwargs[i]
+            if str(i) == "y" and len(args) < 5:
+                self.__y = kwargs[i]
