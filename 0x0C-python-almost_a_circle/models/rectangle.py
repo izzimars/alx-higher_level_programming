@@ -60,7 +60,12 @@ class Rectangle(Base):
         ls = [width, height, x, y]
         for i in ls:
             if not isinstance(i, int) or isinstance(i, bool):
-                raise TypeError("{} must be an integer.".format(i))
+                lstval = {
+                        "0": "width",
+                        "1": "height",
+                        "2": "x",
+                        "3": "y"}
+                raise TypeError("{} must be an integer.".format(lstval[i]))
         if width <= 0:
             raise ValueError("width must be > 0")
         if height <= 0:
@@ -93,7 +98,9 @@ class Rectangle(Base):
         return: None.
         """
         if not isinstance(value, int):
-            raise TypeError
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
         self.__width = value
 
     @property
@@ -115,7 +122,9 @@ class Rectangle(Base):
         return: None.
         """
         if not isinstance(value, int):
-            raise TypeError
+            raise TypeError("height must be an integer")
+        if value <= 0:
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
@@ -137,7 +146,9 @@ class Rectangle(Base):
         return: None.
         """
         if not isinstance(value, int):
-            raise TypeError
+            raise TypeError("x must be an integer")
+        if value < 0:
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
@@ -159,7 +170,9 @@ class Rectangle(Base):
         return: None.
         """
         if not isinstance(value, int):
-            raise TypeError
+            raise TypeError("y must be an integer")
+        if value < 0:
+            raise ValueError("y must be >= 0")
         self.__y = value
 
     def area(self):
