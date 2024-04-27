@@ -13,6 +13,8 @@ Unittest classes:
 """
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
+import json
 
 
 class TestBase_instantiation(unittest.TestCase):
@@ -42,7 +44,7 @@ class TestBase_instantiation(unittest.TestCase):
 
     def test_sameid(self):
         b1 = Base()
-        b2 = Base(7)
+        b2 = Base(8)
         self.assertEqual(b1.id, b2.id)
 
     def test_None_id(self):
@@ -58,6 +60,24 @@ class TestBase_instantiation(unittest.TestCase):
         with self.assertRaises(TypeError):
             Base(1, 2)
 
+class JsonConversionTests(unittest.TestCase):
+    """Unit tests for testing JSON conversion with the Base class."""
+
+    def test_baseex_json(self):
+        json_string = Base.to_json_string({})
+        self.assertEqual(json_string, "[]")
+
+    def test_baseexone_json(self):
+        r1 = Rectangle(10, 7, 2, 8)
+        json_string = (Base.to_json_string(r1.to_dictionary()))
+        expected = (json.dumps({"id": 1, "width": 10, "x": 2, "height": 7, "y": 8}))
+        json_string = json.loads(json_string)
+        expected = json.loads(expected)
+        self.assertEqual(json_string, expected)
+
+    def test_baseextwo(self):
+        json_string = Base.to_json_string(None)
+        self.assertEqual(json_string, "[]") 
 
 if __name__ == "__main__":
     unittest.main()
