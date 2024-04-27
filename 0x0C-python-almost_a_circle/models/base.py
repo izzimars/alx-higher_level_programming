@@ -15,6 +15,9 @@ Public Function:
 """
 
 
+import json
+
+
 class Base:
     """
     Base Class
@@ -41,3 +44,18 @@ class Base:
         else:
             Base.__nb_objects = Base.__nb_objects + 1
             self.id = Base.__nb_objects
+
+    def to_json_string(list_dictionaries):
+        """ converts a dictionary into a json notation.
+
+        params list_dictionary: a dictionary holding the represenation
+                                of a normal object.
+        params type: python dictionary.
+        return value: json represenation of the object.
+        return type: json.
+
+        """
+        if (list_dictionaries is None or len(list_dictionaries) == 0):
+            return []
+        else:
+            return json.dumps(list_dictionaries)
